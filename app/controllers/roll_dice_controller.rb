@@ -1,0 +1,6 @@
+class RollDiceController < ApplicationController
+
+
+
+
+end

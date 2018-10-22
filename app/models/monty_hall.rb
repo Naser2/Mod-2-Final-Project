@@ -1,0 +1,3 @@
+class MontyHall < ApplicationRecord
+  
+end
