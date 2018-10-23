@@ -6,4 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-diceroll=RollDice.create(name: "Dice Roll", description: "user picks from 1 to 6 what the dice roll will be")
+RollDice.destroy_all 
+roll = RollDice.create(name: "Dice Roll", description: "user picks from 1 to 6 what the dice roll will be")

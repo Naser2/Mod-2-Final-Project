@@ -1,5 +1,4 @@
-<h1> Sign-UP</h1>
-
+<h1> Login </h1>
 <% if @user.errors.any? %>
 <h2> Please correct the errors </h2>
   <ul>
@@ -7,17 +6,19 @@
     <li> <%= msg %></li>
   </ul>
   <% end  %>
-<% end %>
+ <% end %>
+
 
   <%= form_for(@user) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :autocomplete => :off %>
 </br>
   <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, :autocomplete => :off %>
 </br>
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <h3> Do you want to sign up? <%= link_to "SignUp",  users_signup_path %></h>
 
   <%= f.submit %>
 <% end %>

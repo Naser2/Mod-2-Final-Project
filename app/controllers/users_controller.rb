@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   # before_action :get_user, only: [:show, :update, :destoy]
+  # before_action :flash_action
 
   def new
     @user = User.new
@@ -14,13 +15,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    redirect_to @user
+    @user = User.new(user_params)
+    if @user.valid?
+     @user.save
+     redirect_to @user #profile
+    else
+      flash[:errors] = " Invalid Username or Password"
+      render :signup
+    end
   end
 
 
   def show
     @user = User.find(params[:id])
+    @rolldice = RollDice.all
   end
 
   def edit
@@ -33,7 +41,7 @@ class UsersController < ApplicationController
       user.save
       redirect_to user_path(@user)
     else
-      render :new
+      render :signup
     end
   end
 

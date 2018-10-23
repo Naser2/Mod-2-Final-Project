@@ -1,5 +1,4 @@
-<h1> Sign-UP</h1>
-
+<h1> Log in </h1>
 <% if @user.errors.any? %>
 <h2> Please correct the errors </h2>
   <ul>
@@ -9,15 +8,15 @@
   <% end  %>
 <% end %>
 
-  <%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</br>
+  <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
-</br>
+  </br>
   <%= f.label :password %>
   <%= f.password_field :password %>
 
-  <%= f.submit %>
+  <%= f.submit "Login" %>
+
 <% end %>
+
+ <p> Sign Up? <%= link_to "SignUp", users_signup_path %></p>
