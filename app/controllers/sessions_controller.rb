@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   # before_action :flash_action
 
   def new
+    @user = User.new
   end
 
   def create

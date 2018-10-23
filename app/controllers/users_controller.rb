@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def index
-
   end
 
   def signup
@@ -16,6 +15,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    byebug
     if @user.valid?
      @user.save
      redirect_to @user #profile
