@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    byebug
+
     if @user.valid?
      @user.save
      redirect_to @user #profile
@@ -37,8 +37,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if user.update(user_params)
-      user.save
+    if @user.update(user_params)
+      @user.save
       redirect_to user_path(@user)
     else
       render :signup
